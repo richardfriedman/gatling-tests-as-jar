@@ -37,3 +37,4 @@
     -F plugin[0]=sbtjava \
     -F sbtjava_simClass=example.SomeGatlingSimulation
 ```
+API docs for running load tests - https://www.redline13.com/ApiDoc/LoadTest/Post
