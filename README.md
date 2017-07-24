@@ -18,3 +18,22 @@
 
 - You can increase the number of users per second and the duration using environment variables. 
     - `export CONSTANT_USER_PER_SEC=10 DURATION="2 seconds"`
+    
+## Executing via RedLine13 Command Line
+- Plugin
+ - Name = sbtjava
+ - Properties
+  - sbtjava_simClass - simulation class embedded in jar
+  
+```
+  curl -v https://www.redline13.com/Api/LoadTest \
+    -H "X-Redline-Auth: XXXXXXXXX" \
+    -F testType=gatling-test \
+    -F name=GatlingFromAPI \
+    -F "file=@gatling-tests-as-jar-1.0.jar" \
+    -F opts="-DCONSTANT_USER_PER_SEC=10 -DDURATION='10 seconds'" \
+    -F version=2.2.0 \
+    -F numServers=1 \
+    -F plugin[0]=sbtjava \
+    -F sbtjava_simClass=example.SomeGatlingSimulation
+```
